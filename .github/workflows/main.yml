@@ -31,3 +31,13 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+        
+    ################################
+    # Run Linter against code base #
+    ################################
+    - name: Lint Code Base
+      uses: docker://github/super-linter:v3
+      env:
+        VALIDATE_ALL_CODEBASE: false
+	      DEFAULT_BRANCH: master
+	      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     
